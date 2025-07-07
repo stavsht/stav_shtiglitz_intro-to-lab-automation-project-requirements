@@ -12,7 +12,7 @@ volatile bool ledState = false;
 
 void handleInterrupt() {
   println("working");
-  ledState = !ledState; // Toggle LED
+  digitalWrite(LED1, HIGH); // Turn on LED1
 }
 
 void setup() {
@@ -28,7 +28,6 @@ void setup() {
 void loop() {
   
   if (digitalRead(BUTTON) == HIGH) { // Check if button is pressed
-    digitalWrite(LED1, HIGH); // Turn on LED1
     println("Button pressed, LED1 is ON");
   } else {
     digitalWrite(LED1, LOW); // Turn off LED1
