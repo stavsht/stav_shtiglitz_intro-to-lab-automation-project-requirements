@@ -5,6 +5,7 @@
     ],
     "files.associations": {
         "make_led_light_on_button_press_with_intrrupt": "cpp",
-        "make_led_light_on_button_press_with_intrrupt_timer": "cpp"
+        "make_led_light_on_button_press_with_intrrupt_timer": "cpp",
+        "make_led_light_on_timer2": "cpp"
     }
 }

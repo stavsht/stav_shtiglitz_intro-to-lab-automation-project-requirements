@@ -1,0 +1,52 @@
+// Button to turn on LED using interrupt
+// This code uses an interrupt to toggle the state of an LED when a button is pressed, 
+// then automatically turns it off after a set time.
+#include <Arduino.h>
+#define println(x) Serial.println(x)
+
+int LED1 = 4;            // LED pin
+int INTERRUPT_PIN = 2;   // Interrupt pin (must be 2 or 3 on Uno)
+int BUTTON = 6;          // Grove Button pin
+int WAITING_TIME = 5000;
+
+volatile bool startTimer = false;    // Set in interrupt
+bool ledOn = false;
+volatile bool ledState = false;
+unsigned long ledStartTime = 0;
+
+void handleInterrupt() {
+  println("working");
+  digitalWrite(LED1, HIGH);
+  startTimer = true;
+}
+
+void setup() {
+  Serial.begin(9600);
+
+  pinMode(LED1, OUTPUT);
+  pinMode(BUTTON, INPUT); 
+  pinMode(INTERRUPT_PIN, INPUT_PULLUP); // Button input with internal pull-up
+
+  attachInterrupt(digitalPinToInterrupt(INTERRUPT_PIN), handleInterrupt, RISING);
+}
+
+void loop() {
+  for (int i = 0; i< 1000; i++){
+    println("calculating...");
+  }
+  if (digitalRead(BUTTON) == HIGH) { // Check if button is pressed
+    
+    println("LED ON by interrupt");
+    ledStartTime = millis();
+    ledOn = true;
+    startTimer = false; // reset flag
+  }
+
+  // If LED is on, check how long it’s been
+  if (ledOn && (millis() - ledStartTime >= WAITING_TIME)) {
+    digitalWrite(LED1, LOW);
+    println("5 seconds passed, LED OFF");
+    ledOn = false;
+  }
+
+}

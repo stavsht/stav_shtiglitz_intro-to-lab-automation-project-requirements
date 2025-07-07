@@ -1,0 +1,53 @@
+// This code turns on an LED when a button connected to an interrupt pin is pressed, 
+//then automatically turns it off after a set time using a timer. It also prints status messages to the serial monitor during operation.
+
+#include <Arduino.h>
+#include <MsTimer2.h>
+
+#define println(x) Serial.println(x)
+
+int LED1 = 4;            // LED pin
+int INTERRUPT_PIN = 2;   // Interrupt pin (must be 2 or 3 on Uno)
+int BUTTON = 6;          // Grove Button pin
+int WAITING_TIME = 30;
+int DelayVar = 1000;
+
+volatile bool ledOn = false;
+
+// Timer callback to turn off LED
+void turnOffLED() {
+  digitalWrite(LED1, LOW);
+  ledOn = false;
+  println("5 seconds passed, LED OFF (Timer2)");
+}
+
+void handleInterrupt() {
+  println("Interrupt: LED ON");
+  digitalWrite(LED1, HIGH);
+  ledOn = true;
+
+  // Start timer to turn off LED after 5 seconds
+  MsTimer2::stop(); // Ensure timer is reset
+  MsTimer2::set(WAITING_TIME, turnOffLED);
+  MsTimer2::start();
+}
+
+void setup() {
+  Serial.begin(9600);
+
+  pinMode(LED1, OUTPUT);
+  pinMode(BUTTON, INPUT);
+  pinMode(INTERRUPT_PIN, INPUT_PULLUP); // Button input with internal pull-up
+
+  attachInterrupt(digitalPinToInterrupt(INTERRUPT_PIN), handleInterrupt, RISING);
+}
+
+void loop() {
+  // Dummy work
+  for (int i = 0; i < 1000; i++) {
+    println("calculating...");
+  }
+
+  delay(DelayVar);
+
+}
