@@ -27,7 +27,7 @@ answer here: No, because the for loop is flooding the serial monitor and consume
 ## Use interrupt to light led
 - Add code to create an interrupt pin (why can't it be the button pin?). Use a variable for this.
 - Short the interrupt pin with the button pin
-- test. Does it work?
+- test. Does it work? Yes:) 
 
 ## Exercises
  - commit and upload your code in this project folder.

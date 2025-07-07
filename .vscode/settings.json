@@ -2,5 +2,8 @@
     "cSpell.words": [
         "ADALM",
         "scopy"
-    ]
+    ],
+    "files.associations": {
+        "make_led_light_on_button_press_with_intrrupt": "cpp"
+    }
 }

@@ -1,0 +1,42 @@
+
+#include <Arduino.h>
+#define println(x) Serial.println(x)
+
+int LED1 = 4;            // Grove LED pin
+int BUTTON = 6;          // Grove Button pin
+int INTERRUPT_PIN = 2;   // Use only pin 2 or 3 for interrupt
+int VarDelay = 1;
+
+volatile bool ledState = false;
+
+void handleInterrupt() {
+  println("working");
+  ledState = !ledState; // Toggle LED
+}
+
+void setup() {
+  Serial.begin(9600);
+
+  pinMode(LED1, OUTPUT);
+  pinMode(BUTTON, INPUT_PULLUP);       // Enable internal pull-up
+  pinMode(INTERRUPT_PIN, INPUT_PULLUP);
+
+  attachInterrupt(digitalPinToInterrupt(INTERRUPT_PIN), handleInterrupt, RISING);
+}
+
+void loop() {
+  
+  if (digitalRead(BUTTON) == HIGH) { // Check if button is pressed
+    digitalWrite(LED1, HIGH); // Turn on LED1
+    println("Button pressed, LED1 is ON");
+  } else {
+    digitalWrite(LED1, LOW); // Turn off LED1
+  }
+  
+  delay(VarDelay);
+
+  for (int i = 0; i < 10000; i++) {
+ 
+  }
+
+}
