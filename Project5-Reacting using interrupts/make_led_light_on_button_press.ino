@@ -48,7 +48,7 @@ void loop() {
   delay(VarDelay);
   
   for (int i = 0; i< 10000; i++){
-    Serial.println("calculating...");
+    println("calculating...");
 }
 }
 
