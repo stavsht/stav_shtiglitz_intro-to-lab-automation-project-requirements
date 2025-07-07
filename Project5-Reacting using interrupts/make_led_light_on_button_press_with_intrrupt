@@ -1,4 +1,5 @@
-
+// Button to turn on LED using interrupt
+// This code uses an interrupt to toggle the state of an LED when a button is pressed.
 #include <Arduino.h>
 #define println(x) Serial.println(x)
 
