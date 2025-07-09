@@ -42,7 +42,7 @@ layout = [
      sg.Button('Send')],
     [sg.Multiline(key='-OUT-', size=(60, 12), disabled=True)]
 ]
-window = sg.Window('Project 8 – LED timer', layout, finalize=True)
+window = sg.Window('Project 8 - LED timer', layout, finalize=True)
 
 # Start background listener
 threading.Thread(target=serial_listener,
