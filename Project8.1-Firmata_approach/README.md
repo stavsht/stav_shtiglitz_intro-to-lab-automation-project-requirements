@@ -33,7 +33,7 @@ What is the difference between the two versions (with pymata4 and firmata and wi
 
 Answer: __________
 
-
+ 
 What can you say about the accuracy of the timing between the firmata version and your arduino code version?
 which one is more accurate and why?
 
