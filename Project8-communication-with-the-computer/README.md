@@ -52,6 +52,6 @@ In VSCode, chosse the interpreter in `intro` environment of folder.
 
 ## Exercises
 Paste a screenshot of the GUI here:
-![alt text](GUI.PNG)
+![alt text](GUI-1.PNG)
 Paste a screenshot of the logic analyzer here that presents the time the LED is ON when pressing the button.
 ![alt text](ADALM.PNG)
