@@ -25,10 +25,10 @@ delay_ms = DEFAULT_MS
 # ----- Arduino callback -----
 def button_callback(data):
     global led_off_timer
-    pin, value, _ = data
-    if value == 0:
+    pressed = data[2] == 1      # HIGH means pressed
+    if pressed:
         board.digital_write(LED_PIN, 1)
-        gui_queue.put("Button pressed – LED on")
+        gui_queue.put("Button pressed - LED on")
         if led_off_timer and led_off_timer.is_alive():
             led_off_timer.cancel()
         led_off_timer = Timer(delay_ms / 1000, turn_led_off)

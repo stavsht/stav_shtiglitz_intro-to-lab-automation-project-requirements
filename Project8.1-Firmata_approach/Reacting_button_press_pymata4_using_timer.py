@@ -15,8 +15,8 @@ def turn_led_off():
 
 def cb(data):
     global led_timer
-    value = data[1]          # LOW == pressed with pull-up
-    if value == 0:             # button pressed
+    pressed = data[2] == 1      # HIGH means pressed
+    if pressed:
         print("Button pressed – LED on")
         board.digital_write(LED_PIN, 1)
         if led_timer and led_timer.is_alive():
