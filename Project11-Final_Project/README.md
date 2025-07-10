@@ -1,4 +1,4 @@
-# Project 11 - Final Project 
+ # Project 11 - Final Project 
 
 ## Goals
 1. integrate the knowledge and skills acquired throughout the course to develop a final project that encompasses all the concepts learned.
@@ -37,3 +37,5 @@ Build a system that:
 1. paste here the videos (one fo the hardware and one of the GUI).
 3. add the csv file to the project. make sure it reflects all the states of the project.
 5. If you have multiple folders, write here which is the final version: 
+
+<video controls src="IMG_1130.mp4" title="Title"></video>

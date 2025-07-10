@@ -59,4 +59,4 @@ Same script runs on any board with dFirmataExpress.
 
 Pymata4 cons:
 Timing is PC- and USB-dependent, so pulses jitter by milliseconds.
-Board stops if the host PC disconnects, because logic lives in Python.
+Board stops if the host PC disconnects, because logic lives in Python. 
